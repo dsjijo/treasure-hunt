@@ -386,7 +386,7 @@
         document.getElementById("submitPassword").addEventListener("click", function () {
             const passwordInput = document.getElementById("teamPasswordInput").value;
             if (passwordInput.toLowerCase().trim() === currentPuzzle.password) {
-                if (typeof(currentPuzzle.answer) == 'object' && currentPuzzle.questionImage == "puzzle5.jpg" ) {
+                if (typeof(currentPuzzle.answer) == 'object' && currentPuzzle.questionImage == "puzzle5.png" ) {
                     document.getElementById("puzzleText2").innerText = currentPuzzle.question;
                     document.getElementById("questionImage2").src = currentPuzzle.questionImage; // Set the question image
                     document.getElementById("puzzle2").style.display = 'block';
@@ -404,7 +404,7 @@
 
         document.getElementById("submitAnswer").addEventListener("click", function () {
             const answer = document.getElementById("answerInput").value;
-            if (typeof(currentPuzzle.answer) == 'object' && currentPuzzle.questionImage == "puzzle5.jpg" ) {
+            if (typeof(currentPuzzle.answer) == 'object' && currentPuzzle.questionImage == "puzzle5.png" ) {
                 let result = currentPuzzle.answer.some(item => answer.toLowerCase().trim().includes(item));
                 // Check if the answer is correct by removing any leading/trailing spaces and removing the capitalizing for any of the correct answers
                 if (result) {
@@ -460,7 +460,7 @@
         });
 
         document.getElementById("okButton").addEventListener("click", function () {
-            if (currentPuzzle.questionImage != "puzzle5.jpg") {
+            if (currentPuzzle.questionImage != "puzzle5.png") {
                 document.getElementById("photo").style.display = 'none';
                 openScanner();  // Reopen the scanner for the next QR code
             }

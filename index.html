@@ -191,7 +191,7 @@
             },
             "group1_qr5-Luigi Variara": { 
                 question: "Answer the following questions correctly to reveal your final destination.", 
-                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", "6", "2017", "fr. puthur joshy"], 
+                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", 6, 2017, "fr. puthur joshy"], 
                 image: "correct.jpg", 
                 questionImage: "puzzle5.png", 
                 hint: "Congratulations..... Go fast and collect your treasure.... Please Take a screenshot of this page.........",
@@ -239,7 +239,7 @@
             },
             "group2_qr5-Joseph Quadrio": { 
                 question: "Answer the following questions correctly to reveal your final destination.", 
-                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", "6", "2017", "fr. puthur joshy"], 
+                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", 6, 2017, "fr. puthur joshy"], 
                 image: "correct.jpg", 
                 questionImage: "puzzle5.png", 
                 hint: "Congratulations..... Go fast and collect your treasure.... Please Take a screenshot of this page.........",
@@ -287,7 +287,7 @@
             },
             "group3_qr5-Louis Guanella": { 
                 question: "Answer the following questions correctly to reveal your final destination.", 
-                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", "6", "2017", "fr. puthur joshy"], 
+                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", 6, 2017, "fr. puthur joshy"], 
                 image: "correct.jpg",
                 questionImage: "puzzle5.png", 
                 hint: "Congratulations..... Go fast and collect your treasure.... Please Take a screenshot of this page.........",
@@ -335,7 +335,7 @@
             },
             "group4_qr5-Attilio Giordani": { 
                 question: "Answer the following questions correctly to reveal your final destination.", 
-                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", "6", "2017", "fr. puthur joshy"], 
+                answer: ["fr. kannukettiyil mathew","fr. jose kuttianimattathil", "god's gift", 6, 2017, "fr. puthur joshy"], 
                 image: "correct.jpg",
                 questionImage: "puzzle5.png", 
                 hint: "Congratulations..... Go fast and collect your treasure.... Please Take a screenshot of this page.........",
@@ -442,14 +442,28 @@
             for (let i = 1; i <= 6; i++) {
                 let answer = document.getElementById("answerInput" + i).value;
                 answer = answer.toLowerCase().trim();
-                if (currentPuzzle.answer[i-1].includes(answer)) {
-                    correctAnswers++;
-                    document.getElementById("answerspan" + i).style.display = 'block';
-                    document.getElementById("wronganswerspan" + i).style.display = 'none';
+                if (i == 4 || i == 5){
+                   if (currentPuzzle.answer[i-1] == answer){
+                        correctAnswers++;
+                        document.getElementById("answerspan" + i).style.display = 'block';
+                        document.getElementById("wronganswerspan" + i).style.display = 'none';
+                   } 
+                    else {
+                        document.getElementById("wronganswerspan" + i).style.display = 'block';
+                        document.getElementById("answerspan" + i).style.display = 'none';
+                    }
                 }
+                
                 else{
-                    document.getElementById("wronganswerspan" + i).style.display = 'block';
-                    document.getElementById("answerspan" + i).style.display = 'none';
+                    if (currentPuzzle.answer[i-1].includes(answer)) {
+                        correctAnswers++;
+                        document.getElementById("answerspan" + i).style.display = 'block';
+                        document.getElementById("wronganswerspan" + i).style.display = 'none';
+                    }
+                    else{
+                        document.getElementById("wronganswerspan" + i).style.display = 'block';
+                        document.getElementById("answerspan" + i).style.display = 'none';
+                    }
                 }
             }
             // // specifically check if the 3rd answer contains the word "mary"  then increment the correctAnswers

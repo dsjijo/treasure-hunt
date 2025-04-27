@@ -442,12 +442,14 @@
             for (let i = 1; i <= 6; i++) {
                 let answer = document.getElementById("answerInput" + i).value;
                 answer = answer.toLowerCase().trim();
-                if (currentPuzzle.answer.includes(answer)) {
+                if (currentPuzzle.answer[i-1].includes(answer)) {
                     correctAnswers++;
                     document.getElementById("answerspan" + i).style.display = 'block';
+                    document.getElementById("wronganswerspan" + i).style.display = 'none';
                 }
                 else{
                     document.getElementById("wronganswerspan" + i).style.display = 'block';
+                    document.getElementById("answerspan" + i).style.display = 'none';
                 }
             }
             // // specifically check if the 3rd answer contains the word "mary"  then increment the correctAnswers

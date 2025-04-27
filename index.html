@@ -125,12 +125,13 @@
     <div id="puzzle2">
         <h2>Puzzle: <span id="puzzleText2"></span></h2>
         <img id="questionImage2" src="" alt="Puzzle Question Image" style="max-width: 300px;" />
-        <input type="text" id="answerInput1" placeholder="Enter your answer 1" />
-        <input type="text" id="answerInput2" placeholder="Enter your answer 2" />
-        <input type="text" id="answerInput3" placeholder="Enter your answer 3" />
-        <input type="text" id="answerInput4" placeholder="Enter your answer 4" />
-        <input type="text" id="answerInput5" placeholder="Enter your answer 5" />
-        <input type="text" id="answerInput6" placeholder="Enter your answer 6" />
+        <input type="text" id="answerInput1" placeholder="Enter your answer 1" /><span id="answerspan1">✅</span><span id="wronganswerspan1">❌</span>
+        <input type="text" id="answerInput2" placeholder="Enter your answer 2" /><span id="answerspan2">✅</span><span id="wronganswerspan2">❌</span>
+        <input type="text" id="answerInput3" placeholder="Enter your answer 3" /><span id="answerspan3">✅</span><span id="wronganswerspan3">❌</span>
+        <input type="text" id="answerInput4" placeholder="Enter your answer 4" /><span id="answerspan4">✅</span><span id="wronganswerspan4">❌</span>
+        <input type="text" id="answerInput5" placeholder="Enter your answer 5" /><span id="answerspan5">✅</span><span id="wronganswerspan5">❌</span>
+        <input type="text" id="answerInput6" placeholder="Enter your answer 6" /><span id="answerspan6">✅</span><span id="wronganswerspan6">❌</span>
+        <br/>
         <button id="submitAnswer2">Submit Answer</button>
     </div>
     <div id="photo">
@@ -356,6 +357,8 @@
             document.getElementById("answerInput").value = "";
             for (let i = 1; i <= 6; i++) {
                 document.getElementById("answerInput" + i).value = "";
+                document.getElementById("answerspan" + i).style.display = 'none';
+                document.getElementById("wronganswerspan" + i).style.display = 'none';
             }
             // Create a new instance of the HTML5Qrcode
             const html5QrCode = new Html5Qrcode("scanner");
@@ -441,6 +444,10 @@
                 answer = answer.toLowerCase().trim();
                 if (currentPuzzle.answer.includes(answer)) {
                     correctAnswers++;
+                    document.getElementById("answerspan" + i).style.display = 'block';
+                }
+                else{
+                    document.getElementById("wronganswerspan" + i).style.display = 'block';
                 }
             }
             // // specifically check if the 3rd answer contains the word "mary"  then increment the correctAnswers
